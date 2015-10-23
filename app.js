@@ -10,7 +10,7 @@ var API_URL = "http://www.murnow.com/api/search/?q=";
 $('#submit').on("click", function(evnt) {
     // console.log('#submit was clicked');
     evnt.preventDefault();
-    var input = $('#guess-value').val();
+    var input = $('#search-input').val();
 
     $.getJSON(API_URL + input).then(
         function showResponse(response) {
@@ -28,8 +28,16 @@ $('#submit').on("click", function(evnt) {
                     $($div).on("click", function(evnt) {
                             $app.html('');
                             $app.append(this);
-                
-                            console.log(this.p);
+                            
+                            var name = $(this).find('p.name').html();
+                            var brand = $(this).find('p.brand').html();
+                            var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
+                            $.getJSON(youtubeCall).items.forEach(function(video){
+                                console.log(video[0]);
+        
+                            }
+                            
+                            );
                             //     var $body = $('#body');
                             //     $body.html('');
                             //     var $head = $('#head');
