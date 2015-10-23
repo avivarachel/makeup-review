@@ -1,5 +1,4 @@
 var $app = $('#app');
-var $head = $('<head>');
 
 $('#search > form > input[type="search"]').focus();
 
@@ -13,9 +12,11 @@ $('#submit').on("click", function(evnt) {
 
     $.getJSON(API_URL + input).then(
         function showResponse(response) {
-            console.log(response);
             $app.html(''); // Clear the #app div
             //ul needs to be appended to the div
+            
+
+            
             response.search.forEach(function(product) {
                 var $div = $('<div class="one-unit">');
                 $app.append($div);
@@ -25,14 +26,14 @@ $('#submit').on("click", function(evnt) {
                 $div.append('<p class=brand>' + brand + '</p>');
 
                 $($div).on("click", function(evnt) {
-                
+                    var $body = $('#body');
+                    $body.html('');
+                    var $head = $('#head');
                     $head.append('<script src="search.js" type="text/javascript"></script>');
                     $head.append('<script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>');
-                    $app.html('');
-                    var $pre = $('<pre id="response">');
-                    var $yt = $('<div id="app">');
-                    $($('#body')).append($pre);
-                    $('#response').after($yt);
+                    console.log(onSearchResponse);
+                    //$body.append($pre);
+                    
          
 
 

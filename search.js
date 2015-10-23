@@ -1,9 +1,3 @@
-// Helper function to display JavaScript value on HTML page.
-function showResponse(response) {
-    var responseString = JSON.stringify(response, '', 2);
-    document.getElementById('response').innerHTML += responseString;
-}
-
 // Called automatically when JavaScript client library is loaded.
 function onClientLoad() {
     gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
@@ -34,5 +28,11 @@ function search() {
 
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {
-    showResponse(response);
+    return response.items[0].id.videoId;
+
 }
+
+
+module.exports = {
+    onSearchResponse: onSearchResponse
+};
