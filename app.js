@@ -31,7 +31,7 @@ $('#submit').on("click", function(evnt) {
                     var $head = $('#head');
                     $head.append('<script src="search.js" type="text/javascript"></script>');
                     $head.append('<script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>');
-                    console.log(onSearchResponse);
+                 
                     //$body.append($pre);
                     
          
