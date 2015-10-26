@@ -16,7 +16,7 @@ $('#submit').on("click", function(evnt) {
         function showResponse(response) {
             $app.html(''); // Clear the #app div
             //ul needs to be appended to the div
-            var $ul = $('<ul class="large-block-grid-4">');
+            var $ul = $('<ul class="large-block-grid-5">');
             $app.append($ul);
             
             response.search.forEach(function(product) {
@@ -35,10 +35,12 @@ $('#submit').on("click", function(evnt) {
                             
                             var name = $(this).find('p.name').html();
                             var brand = $(this).find('p.brand').html();
-                        
+                            console.log(name);
+                            console.log(brand);
                             
                             var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
                             $.getJSON(youtubeCall).then(function(response){
+                               
                                 response.items.forEach(function(video){
                                    
                                     

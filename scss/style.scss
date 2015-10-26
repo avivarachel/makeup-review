@@ -2,12 +2,10 @@
 @import "foundation/components/block-grid";
 
 body {
-    padding: 40px 0px;   
+    padding: 40px 0px;  
+    text-align: center;
+    list-style: none;
 }
-
-
-
-
     
 
 #search {
@@ -65,4 +63,14 @@ body {
 ::-webkit-input-placeholder {
    color: white;
    opacity: 0.5;
+}
+
+img {
+    width:100%;
+}
+
+
+
+.large-block-grid-5 li {
+    padding: 40px;
 }
