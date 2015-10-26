@@ -1,15 +1,16 @@
+@import "foundation/components/buttons";
+@import "foundation/components/block-grid";
+
 body {
-    padding: 40px 0px;   
+    padding: 40px 0px;  
+    text-align: center;
+    list-style: none;
 }
-
-
-
-
     
 
 #search {
     
-     position: fixed;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -23,11 +24,16 @@ body {
 	/*-ms-transform: translate(0px, 0px) scale(1, 1);*/
 	transform: translate(0px, 0px) scale(1, 1); 
     opacity: 1;
+    display: table;
+}
+
+#search form {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 #search input[type="search"] {
-    position: absolute;
-    top: 50%;
     width: 100%;
     color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0);
@@ -42,22 +48,29 @@ body {
     outline: none;
 }
 
-#search .btn-lg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 61px;
-    margin-left: -45px;
-    background-color: RGBA(143, 199, 195, 1);
+#submit {
+    text-transform: uppercase;
+    margin-top: 20px;
+    background-color: RGBA(243, 169, 186, 1);
     border: 2px solid white;
-    
+    border-radius: 8px;
 }
 
-#search .btn-lg:hover {
+#submit:hover {
     opacity: 0.5;
 }
 
 ::-webkit-input-placeholder {
    color: white;
    opacity: 0.5;
+}
+
+img {
+    width:100%;
+}
+
+
+
+.large-block-grid-5 li {
+    padding: 40px;
 }
