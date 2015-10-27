@@ -1,11 +1,10 @@
 //Reusable vars
 
 var $app = $('#app');
-
-
-var $header = $('<div id="header">This is our header</div><form><input type="search" placeholder="search for your favourite makeup">');
-
+var $header = $('<div id="header"></div><form><input type="search" id="searchbar" placeholder="search for your favourite makeup">');
 var API_URL = "http://www.murnow.com/api/search/?q=";
+
+
 
 
 //Backbone router
@@ -131,4 +130,4 @@ function productView(productId){
 }
            
                             
-                                
+                            

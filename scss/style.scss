@@ -2,6 +2,10 @@
 @import "foundation/components/block-grid";
 @import "foundation/components/grid";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 //Header
 #searchbar {
     background-color: RGBA(237, 104, 181, 0.6);
@@ -19,7 +23,6 @@
     margin: none;
     outline: none;
     cursor: text;
-    
 }
 
 ::-webkit-input-placeholder {
@@ -80,10 +83,20 @@ body {
                 opacity: 0.5;
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
     }
 }
 //Product view with videos
 
+<<<<<<< HEAD
+=======
+
+//Product list view
+
+>>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 a:link {
     text-decoration: none;
 }
@@ -91,6 +104,7 @@ a:link {
 
 ul.large-block-grid-5 li {
     padding: 40px;
+    
     img {
         width: 100%;
         padding: 10px;
@@ -134,4 +148,8 @@ iframe {
 
 #video {
     text-align: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 }
