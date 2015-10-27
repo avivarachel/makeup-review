@@ -1,14 +1,18 @@
+//Reusable vars
+
 var $app = $('#app');
 
-$('#search > form > input[type="search"]').focus();
-
 var $header = $('<div id="header">This is our header</div><form><input type="search" placeholder="search for your favourite makeup">');
+
 var API_URL = "http://www.murnow.com/api/search/?q=";
+
+
+//Backbone router
 
 var AppRouter = Backbone.Router.extend({
     routes: {
         '': 'home',
-        'search/:query': 'search',
+        'search/?q=:query': 'search',
         'product/:productId': 'product'
     },
     home: productSearch,
@@ -19,23 +23,24 @@ var AppRouter = Backbone.Router.extend({
 var appRouter = new AppRouter();
 Backbone.history.start();
 
-
 // Home page search view
 function productSearch() {
     $app.html('');
     var $search = $('<div id="search">');
+    $('#search > form > input[type="search"]').focus();
     $app.append($search);
     $search.append("<form><input type='search' id='search-input' placeholder='search for your favourite makeup'><button id='submit'>Search</button></form>");
+    
     $('#submit').on("click", function(evnt) {
         // console.log('#submit was clicked');
         evnt.preventDefault();
         var input = $('#search-input').val();
-        appRouter.navigate('search/' + input, {trigger: true});
+        appRouter.navigate('search/?q=' + input, {trigger: true});
     });
 }
 
 //Product list view
-function productList(search){
+function productList(search,pageNum){
     $.getJSON(API_URL + search).then(function(response) {
         $app.html(''); // Clear the #app div
         $app.append($header);
@@ -58,6 +63,31 @@ function productList(search){
             $a.append('<p class=name>' + name + '</p>');
             $a.append('<p class=brand>' + brand + '</p>');
         });
+        
+        //Button and load more function
+        var $button = $('<button id="more-products">Load more!</button>');
+        $app.append($button);
+        $('#more-products').on("click", function(evnt) {
+            pageNum++;
+            $.getJSON(API_URL + search + '&from=' + (pageNum*20)).then(function(response) {
+                response.search.forEach(function(product) {
+                    var $li = $('<li>');
+                    $app.find('ul').append($li);
+                    var name = product.product_name;
+                    var brand = product.brand_name;
+                    var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image +'.jpg');
+            
+                    var $a = $('<a href="#product/' + product.id + '">');
+                    $li.append($a);
+                
+                    $a.append('<image src=' + img + '>');
+                    $a.append('<p class=name>' + name + '</p>');
+                    $a.append('<p class=brand>' + brand + '</p>');
+                });
+                
+            });
+        });
+            
     });
 }
 
