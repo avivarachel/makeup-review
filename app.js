@@ -30,9 +30,8 @@ function productSearch() {
     $('#search > form > input[type="search"]').focus();
     $app.append($search);
     $search.append("<form><input type='search' id='search-input' placeholder='search for your favourite makeup'><button id='submit'>Search</button></form>");
-    
     $('#submit').on("click", function(evnt) {
-        // console.log('#submit was clicked');
+        console.log(evnt);
         evnt.preventDefault();
         var input = $('#search-input').val();
         appRouter.navigate('search/?q=' + input, {trigger: true});
@@ -42,52 +41,61 @@ function productSearch() {
 //Product list view
 function productList(search,pageNum){
     $.getJSON(API_URL + search).then(function(response) {
-        $app.html(''); // Clear the #app div
-        $app.append($header);
-        //ul needs to be appended to the div
-    
-        var $ul = $('<ul class="large-block-grid-5">');
-        $app.append($ul);
+
+        if (response.search.length===0){
+            $app.html(''); // Clear the #app div
+            $app.append($header);
+            $app.append('<h1>We do not have what you are looking for. Search again</h1>');
+        }
         
-        response.search.forEach(function(product) {
-            var $li = $('<li>');
-            $ul.append($li);
-            var name = product.product_name;
-            var brand = product.brand_name;
-            var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image +'.jpg');
-    
-            var $a = $('<a href="#product/' + product.id + '">');
-            $li.append($a);
-                
-            $a.append('<image src=' + img + '>');
-            $a.append('<p class=name>' + name + '</p>');
-            $a.append('<p class=brand>' + brand + '</p>');
-        });
+        else {
+            $app.html(''); // Clear the #app div
+            $app.append($header);
+            //ul needs to be appended to the div
         
-        //Button and load more function
-        var $button = $('<button id="more-products">Load more!</button>');
-        $app.append($button);
-        $('#more-products').on("click", function(evnt) {
-            pageNum++;
-            $.getJSON(API_URL + search + '&from=' + (pageNum*20)).then(function(response) {
-                response.search.forEach(function(product) {
-                    var $li = $('<li>');
-                    $app.find('ul').append($li);
-                    var name = product.product_name;
-                    var brand = product.brand_name;
-                    var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image +'.jpg');
+            var $ul = $('<ul class="large-block-grid-5">');
+            $app.append($ul);
             
-                    var $a = $('<a href="#product/' + product.id + '">');
-                    $li.append($a);
-                
-                    $a.append('<image src=' + img + '>');
-                    $a.append('<p class=name>' + name + '</p>');
-                    $a.append('<p class=brand>' + brand + '</p>');
-                });
-                
+            response.search.forEach(function(product) {
+                var $li = $('<li>');
+                $ul.append($li);
+                var name = product.product_name;
+                var brand = product.brand_name;
+                var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image +'.jpg');
+        
+                var $a = $('<a href="#product/' + product.id + '">');
+                $li.append($a);
+                    
+                $a.append('<image src=' + img + '>');
+                $a.append('<p class=name>' + name + '</p>');
+                $a.append('<p class=brand>' + brand + '</p>');
             });
-        });
             
+            
+            //Button and load more function
+            var $button = $('<button id="more-products">Load more!</button>');
+            $app.append($button);
+            $('#more-products').on("click", function(evnt) {
+                pageNum++;
+                $.getJSON(API_URL + search + '&from=' + (pageNum*20)).then(function(response) {
+                    response.search.forEach(function(product) {
+                        var $li = $('<li>');
+                        $app.find('ul').append($li);
+                        var name = product.product_name;
+                        var brand = product.brand_name;
+                        var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image +'.jpg');
+                
+                        var $a = $('<a href="#product/' + product.id + '">');
+                        $li.append($a);
+                    
+                        $a.append('<image src=' + img + '>');
+                        $a.append('<p class=name>' + name + '</p>');
+                        $a.append('<p class=brand>' + brand + '</p>');
+                    });
+                    
+                });
+            });
+        }
     });
 }
 
