@@ -1,58 +1,25 @@
 @import "foundation/components/buttons";
 @import "foundation/components/block-grid";
-body {
-    padding: 40px 0px;
-    text-align: center;
-    list-style: none;
-}
+@import "foundation/components/grid";
 
-#search {
-    position: fixed;
-    top: 0px;
-    left: 0px;
+//Header
+#searchbar {
+    background-color: RGBA(237, 104, 181, 0.6);
+    color: white;
+    font-size: 25px;
+    text-align: right;
+    cursor: pointer;
+    display: block;
     width: 100%;
-    height: 100%;
-    background-color: RGBA(243, 169, 186, 1);
-    /*   -webkit-transform: translate(0px, 0px) scale(1, 1);*/
-    /*   -moz-transform: translate(0px, 0px) scale(1, 1);*/
-    /*-o-transform: translate(0px, 0px) scale(1, 1);*/
-    /*-ms-transform: translate(0px, 0px) scale(1, 1);*/
-    transform: translate(0px, 0px) scale(1, 1);
-    opacity: 1;
-    display: table;
-}
-
-#search form {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-#search input[type="search"] {
-    width: 100%;
-    color: rgb(255, 255, 255);
-    background: rgba(0, 0, 0, 0);
-    font-size: 60px;
-    font-weight: 300;
-    text-align: center;
-    border: 0px;
-    margin: 0px auto;
-    margin-top: -51px;
-    padding-left: 30px;
-    padding-right: 30px;
+    height: 10%;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+    border: none;
+    position: fixed; top: 0px; left: 0px;
+    margin: none;
     outline: none;
-}
-
-#submit {
-    text-transform: uppercase;
-    margin-top: 20px;
-    background-color: RGBA(243, 169, 186, 1);
-    border: 2px solid white;
-    border-radius: 8px;
-}
-
-#submit:hover {
-    opacity: 0.5;
+    cursor: text;
+    
 }
 
 ::-webkit-input-placeholder {
@@ -60,40 +27,112 @@ body {
     opacity: 0.5;
 }
 
-img {
-    width: 100%;
-    padding: 10px;
-}
 
-img:hover,
-.name:hover
-{
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.large-block-grid-5 li {
+//Home page search view
+body {
     padding: 40px;
+    text-align: center;
+    list-style: none;
+    #search {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: RGBA(243, 169, 186, 1);
+        /*   -webkit-transform: translate(0px, 0px) scale(1, 1);*/
+        /*   -moz-transform: translate(0px, 0px) scale(1, 1);*/
+        /*-o-transform: translate(0px, 0px) scale(1, 1);*/
+        /*-ms-transform: translate(0px, 0px) scale(1, 1);*/
+        transform: translate(0px, 0px) scale(1, 1);
+        opacity: 1;
+        display: table;
+        ::-webkit-input-placeholder {
+            color: white;
+            opacity: 0.5;
+        }
+        form {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        input[type="search"] {
+            width: 100%;
+            color: rgb(255, 255, 255);
+            background: rgba(0, 0, 0, 0);
+            font-size: 60px;
+            font-weight: 300;
+            text-align: center;
+            border: 0px;
+            margin: 0px auto;
+            margin-top: -51px;
+            padding-left: 30px;
+            padding-right: 30px;
+            outline: none;
+        }
+        #submit {
+            text-transform: uppercase;
+            margin-top: 20px;
+            background-color: RGBA(243, 169, 186, 1);
+            border: 2px solid white;
+            border-radius: 8px;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
 }
 
-.name,
-.brand {
-    font-family: 'Work Sans', Helvetica;
-    font-weight: bold;
-}
+//Product list view
 
-.name {
-    font-size: 20px;
+a:link {
+    text-decoration: none;
 }
 
 
-.brand {
-    color: grey;
+ul.large-block-grid-5 li {
+    padding: 40px;
+    img {
+        width: 100%;
+        padding: 10px;
+        &:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    }
+    .name {
+        font-family: Helvetica, Arial, Sans-Serif;
+        color: black;
+        font-size: 20px;
+        // font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    }
+    .brand {
+        font-family: Helvetica, Arial, Sans-Serif;
+        font-weight: bold;
+        color: grey;
+        font-size: 15px;
+    }
+}
+
+//Product view with videos
+h1 {
+    text-align: left;
+}
+
+h2 {
+    text-align: left;
 }
 
 iframe {
-    padding: 50px;
+    padding: 20px;
     border: none;
-    
 }
 
+#video {
+    text-align: center;
+}
