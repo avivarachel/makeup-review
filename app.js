@@ -1,10 +1,17 @@
-//Reusable vars
+//Reusable elements
 
 var $app = $('#app');
-var $header = $('<div id="header"></div><form><input type="search" id="searchbar" placeholder="search for your favourite makeup">');
+var $header = $('<div id="header"></div><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup"><button class="submit"></button>');
+    
 var API_URL = "http://www.murnow.com/api/search/?q=";
 
-
+function searchBar () {   
+     $('.submit').on("click", function(evnt){
+            evnt.preventDefault();
+            var input = $('.search-input').val();
+            appRouter.navigate('search/?q=' + input, {trigger: true});
+     });
+}
 
 
 //Backbone router
@@ -12,12 +19,12 @@ var API_URL = "http://www.murnow.com/api/search/?q=";
 var AppRouter = Backbone.Router.extend({
     routes: {
         '': 'home',
-        'search/?q=:query': 'search',
-        'product/:productId': 'product'
+        'search/?q=:query': 'productList',
+        'product/:productId': 'productView'
     },
     home: productSearch,
-    search: productList,
-    product: productView
+    productList: productList,
+    productView: productView
 });
 
 var appRouter = new AppRouter();
@@ -26,32 +33,30 @@ Backbone.history.start();
 // Home page search view
 function productSearch() {
     $app.html('');
-    var $search = $('<div id="search">');
+    var $homeDiv = $('<div id="home-div">');
 
-    $('#search > form > input[type="search"]').focus();
-    $app.append($search);
-    $search.append("<form><input type='search' id='search-input' placeholder='search for your favourite makeup'><button id='submit'>Search</button></form>");
-    $('#submit').on("click", function(evnt) {
-        console.log(evnt);
-        evnt.preventDefault();
-        var input = $('#search-input').val();
-        appRouter.navigate('search/?q=' + input, {trigger: true});
-    });
+    $('#home-div > form > input[type="search"]').focus();
+    $app.append($homeDiv);
+    $homeDiv.append("<form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form>");
+    searchBar();
+    
 }
 
 //Product list view
-function productList(search,pageNum){
-    $.getJSON(API_URL + search).then(function(response) {
+function productList(input,pageNum){
+    $.getJSON(API_URL + input).then(function(response) {
 
         if (response.search.length===0){
             $app.html(''); // Clear the #app div
             $app.append($header);
+            searchBar();
             $app.append('<h1>We do not have what you are looking for. Search again</h1>');
         }
         
         else {
             $app.html(''); // Clear the #app div
             $app.append($header);
+            searchBar();
             //ul needs to be appended to the div
         
             var $ul = $('<ul class="large-block-grid-5">');
@@ -74,11 +79,11 @@ function productList(search,pageNum){
             
             
             //Button and load more function
-            var $button = $('<button id="more-products">Load more!</button>');
-            $app.append($button);
+            var $loadMoreProducts = $('<button id="more-products">Load more!</button>');
+            $app.append($loadMoreProducts);
             $('#more-products').on("click", function(evnt) {
                 pageNum++;
-                $.getJSON(API_URL + search + '&from=' + (pageNum*20)).then(function(response) {
+                $.getJSON(API_URL + input + '&from=' + (pageNum*20)).then(function(response) {
                     response.search.forEach(function(product) {
                         var $li = $('<li>');
                         $app.find('ul').append($li);

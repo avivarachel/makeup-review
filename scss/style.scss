@@ -2,10 +2,6 @@
 @import "foundation/components/block-grid";
 @import "foundation/components/grid";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 //Header
 #searchbar {
     background-color: RGBA(237, 104, 181, 0.6);
@@ -73,7 +69,7 @@ body {
             padding-right: 30px;
             outline: none;
         }
-        #submit {
+        .submit-search {
             text-transform: uppercase;
             margin-top: 20px;
             background-color: RGBA(243, 169, 186, 1);
@@ -83,20 +79,10 @@ body {
                 opacity: 0.5;
             }
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
     }
 }
 //Product view with videos
 
-<<<<<<< HEAD
-=======
-
-//Product list view
-
->>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 a:link {
     text-decoration: none;
 }
@@ -148,8 +134,4 @@ iframe {
 
 #video {
     text-align: center;
-<<<<<<< HEAD
-=======
-
->>>>>>> 5163502c34293d2d945ae0d83c32e54f16a066fb
 }
