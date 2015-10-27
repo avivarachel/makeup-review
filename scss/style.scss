@@ -2,6 +2,32 @@
 @import "foundation/components/block-grid";
 @import "foundation/components/grid";
 
+//Header
+#searchbar {
+    background-color: RGBA(237, 104, 181, 0.6);
+    color: white;
+    font-size: 25px;
+    text-align: right;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 10%;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+    border: none;
+    position: fixed; top: 0px; left: 0px;
+    margin: none;
+    outline: none;
+    cursor: text;
+    
+}
+
+::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+
 //Home page search view
 body {
     padding: 40px;
@@ -21,19 +47,15 @@ body {
         transform: translate(0px, 0px) scale(1, 1);
         opacity: 1;
         display: table;
-        
         ::-webkit-input-placeholder {
             color: white;
             opacity: 0.5;
         }
-        
-        
         form {
             display: table-cell;
             vertical-align: middle;
             text-align: center;
         }
-        
         input[type="search"] {
             width: 100%;
             color: rgb(255, 255, 255);
@@ -54,57 +76,62 @@ body {
             background-color: RGBA(243, 169, 186, 1);
             border: 2px solid white;
             border-radius: 8px;
-            
             &:hover {
                 opacity: 0.5;
             }
         }
     }
 }
-//Product list view
-ul.large-block-grid-5 li{
+//Product view with videos
+
+a:link {
+    text-decoration: none;
+}
+
+
+ul.large-block-grid-5 li {
     padding: 40px;
     img {
         width: 100%;
         padding: 10px;
-        &:hover{
-            opacity: 0.5;
-            cursor: pointer;
-        }
-    }
-    
-    .name{
-        font-family: 'Work Sans', Helvetica;
-        font-size: 20px;
-        font-weight: bold;
         &:hover {
             opacity: 0.5;
             cursor: pointer;
         }
     }
-    
-    
-    
+    .name {
+        font-family: Helvetica, Arial, Sans-Serif;
+        color: black;
+        font-size: 20px;
+        // font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+    }
     .brand {
-        font-family: 'Work Sans', Helvetica;
+        font-family: Helvetica, Arial, Sans-Serif;
         font-weight: bold;
         color: grey;
+        font-size: 15px;
     }
 }
-//Product view with videos
 
-h1{
-    text-align:left;
+//Product view with videos
+h1 {
+    text-align: left;
 }
-h2{
-    text-align:left;
+
+h2 {
+    text-align: left;
 }
+
 iframe {
     padding: 20px;
     border: none;
-    
 }
 
-#video{
-    text-align:center;
+#video {
+    text-align: center;
 }

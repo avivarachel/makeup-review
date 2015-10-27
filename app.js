@@ -2,6 +2,7 @@
 
 var $app = $('#app');
 
+
 var $header = $('<div id="header">This is our header</div><form><input type="search" placeholder="search for your favourite makeup">');
 
 var API_URL = "http://www.murnow.com/api/search/?q=";
@@ -27,6 +28,7 @@ Backbone.history.start();
 function productSearch() {
     $app.html('');
     var $search = $('<div id="search">');
+
     $('#search > form > input[type="search"]').focus();
     $app.append($search);
     $search.append("<form><input type='search' id='search-input' placeholder='search for your favourite makeup'><button id='submit'>Search</button></form>");
@@ -125,10 +127,8 @@ function productView(productId){
                 });
             });
         }
-    )
+    );
 }
            
                             
                                 
-                            
-                        
