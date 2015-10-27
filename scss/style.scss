@@ -2,6 +2,7 @@
 @import "foundation/components/block-grid";
 @import "foundation/components/grid";
 
+
 //Header
 #searchbar {
     background-color: RGBA(237, 104, 181, 0.6);
@@ -19,7 +20,6 @@
     margin: none;
     outline: none;
     cursor: text;
-    
 }
 
 ::-webkit-input-placeholder {
@@ -80,8 +80,11 @@ body {
                 opacity: 0.5;
             }
         }
+
     }
 }
+//Product view with videos
+
 
 //Product list view
 
@@ -92,6 +95,7 @@ a:link {
 
 ul.large-block-grid-5 li {
     padding: 40px;
+    
     img {
         width: 100%;
         padding: 10px;
@@ -135,4 +139,5 @@ iframe {
 
 #video {
     text-align: center;
+
 }
