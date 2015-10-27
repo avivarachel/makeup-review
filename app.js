@@ -5,7 +5,7 @@ var $header = $('<div id="header"></div><form><input type="search" class="search
     
 var API_URL = "http://www.murnow.com/api/search/?q=";
 
-function searchBar () {   
+function search () {   
      $('.submit').on("click", function(evnt){
             evnt.preventDefault();
             var input = $('.search-input').val();
@@ -38,7 +38,7 @@ function productSearch() {
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
     $homeDiv.append("<form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form>");
-    searchBar();
+    search();
     
 }
 
@@ -49,14 +49,14 @@ function productList(input,pageNum){
         if (response.search.length===0){
             $app.html(''); // Clear the #app div
             $app.append($header);
-            searchBar();
+            search();
             $app.append('<h1>We do not have what you are looking for. Search again</h1>');
         }
         
         else {
             $app.html(''); // Clear the #app div
             $app.append($header);
-            searchBar();
+            search();
             //ul needs to be appended to the div
         
             var $ul = $('<ul class="large-block-grid-5">');
@@ -111,11 +111,16 @@ function productList(input,pageNum){
 function productView(productId){
     $.getJSON('http://www.murnow.com/api/products/' + productId).then(
         function(product) {
-            
             var name = product.product.product_name;
             var brand = product.product.brand_name;
             var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.product.hash_url_image +'.jpg');
+            
+            
             $app.html('');
+            $app.append($header);
+            search();
+            
+            
             var $productProfile = $('<div id="productProfile" class="row">');
             $app.append($productProfile);
             $app.find('#productProfile').append('<div class="large-5 columns"><image src=' + img + '>');
