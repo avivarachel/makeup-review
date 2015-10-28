@@ -55,19 +55,19 @@ $main-color: RGBA(237, 104, 181, 0.6);
     form {
         margin-top:22px;
         vertical-align: right;
-        margin-right: 20px;
+        margin-right: 60px;
          input[type="search"] {
             @include search-input();
         }   
         ::-webkit-input-placeholder {
                 color: white;
                 opacity: 0.5;
-                padding-right: 30px;
-                letter-spacing: 7px;
+                padding-right: 60px;
+                text-decoration: underline;
         }
     }
     button{
-        visibility:hidden;
+        visibility: hidden;
     }
 }
 
@@ -98,8 +98,6 @@ $main-color: RGBA(237, 104, 181, 0.6);
             border: 0px;
             margin: 0px auto;
             margin-top: -51px;
-            padding-left: 30px;
-            padding-right: 30px;
             outline: none;
         }   
         ::-webkit-input-placeholder {

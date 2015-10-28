@@ -1,7 +1,7 @@
 //Reusable elements
 
 var $app = $('#app');
-var $header = $('<div id="header"><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup"><button class="submit"></button></div>');
+var $header = $('<div id="header"><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup"><button class="submit">Search</button></div>');
 
 var API_URL = "http://www.murnow.com/api/search/?q=";
 
