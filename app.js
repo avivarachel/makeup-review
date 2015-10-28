@@ -2,7 +2,7 @@
 
 var $app = $('#app');
 
-var $header = $('<div id="header"><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup <i class=fa fa-search"></i> "><button class="submit"></button></div>');
+var $header = $('<div id="header"><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup"><button class="submit"></button></div>');
 
 var API_URL = "http://www.murnow.com/api/search/?q=";
 
@@ -68,8 +68,8 @@ function productList(input, pageNum) {
             response.search.forEach(function(product) {
                 var $li = $('<li>');
                 $ul.append($li);
-                var name=product.product_name.substring(0,30);
-                if (name.length>29){
+                var name=product.product_name.substring(0,21);
+                if (name.length>20){
                     name =  name +'...';
                 }
                 var brand = product.brand_name;
@@ -83,7 +83,7 @@ function productList(input, pageNum) {
                 $a.append('<p class=brand>' + brand + '</p>');
             });
             //Button and load more function
-            var $loadMoreProducts = $('<button id="more-products">Load more!</button>');
+            var $loadMoreProducts = $('<button id="more-products">Load more</button>');
             $app.append($loadMoreProducts);
             $('#more-products').on("click", function(evnt) {
                 pageNum++;

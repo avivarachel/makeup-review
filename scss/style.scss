@@ -56,12 +56,15 @@ $main-color: RGBA(237, 104, 181, 0.6);
     form {
         margin-top:22px;
         vertical-align: right;
+        margin-right: 20px;
          input[type="search"] {
             @include search-input();
         }   
         ::-webkit-input-placeholder {
                 color: white;
                 opacity: 0.5;
+                padding-right: 30px;
+                letter-spacing: 7px;
         }
     }
     button{
@@ -166,10 +169,18 @@ ul.large-block-grid-5 {
 
 button, .button{
     @include buttons($main-color);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     &:hover {
         background-color:white;
         color:$main-color;
         opacity: 0.5;
+    }
+    &:focus {
+        background-color: white;
+        color: $main-color;
+        outline: 0;
     }
 }
     
