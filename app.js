@@ -22,10 +22,12 @@ function search() {
 var AppRouter = Backbone.Router.extend({
     routes: {
         '': 'home',
+        'error404': 'error404',
         'search/?q=:query': 'productList',
         'product/:productId': 'productView'
     },
     home: productSearch,
+    error404:error404,
     productList: productList,
     productView: productView
 });
@@ -44,7 +46,18 @@ function productSearch() {
     $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
     search();
     $app.append("");
+}
 
+//home page error404
+
+function error404(){
+    $app.html('');
+    var $homeDiv = $('<div id="home-div">');
+    $('#home-div > form > input[type="search"]').focus();
+    $app.append($homeDiv);
+    $homeDiv.append('<h1>the makeup master</h1>');
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='avivaAndUlaize'><img src='assets/avivaAndUlaize.png'></div></div>");
+    search();
 }
 
 //Product list view
@@ -52,10 +65,7 @@ function productList(input, pageNum) {
     $.getJSON(API_URL + input).then(function(response) {
 
         if (response.search.length === 0) {
-            $app.html(''); // Clear the #app div
-            $app.append($header);
-            search();
-            $app.append('<h1>We do not have what you are looking for. Search again</h1><img src="assets/not_the_billionaires.png">');
+            window.location.href = "#error404";
         }
         else {
             $app.html(''); // Clear the #app div
@@ -147,3 +157,4 @@ function productView(productId) {
         }
     );
 }
+
