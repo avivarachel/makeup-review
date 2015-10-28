@@ -40,9 +40,9 @@ function productSearch() {
 
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
-    $homeDiv.append("<form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form>");
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
     search();
-    $homeDiv.append('<div id="signature"><img src="assets/not_the_billionaires.png">');
+    $app.append("");
 
 }
 
@@ -89,9 +89,13 @@ function productList(input, pageNum) {
                 pageNum++;
                 $.getJSON(API_URL + input + '&from=' + (pageNum * 20)).then(function(response) {
                     response.search.forEach(function(product) {
+            
                         var $li = $('<li>');
                         $app.find('ul').append($li);
-                        var name = product.product_name;
+                        var name=product.product_name.substring(0,21);
+                        if (name.length>20){
+                            name =  name +'...';
+                        }
                         var brand = product.brand_name;
                         var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.hash_url_image + '.jpg');
 
@@ -133,10 +137,10 @@ function productView(productId) {
             var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
             $.getJSON(youtubeCall).then(function(response) {
                 
-                $app.append('<div id=videos class=row>');
+                $app.append('<ul id=videos class="large-block-grid-3">');
                 response.items.forEach(function(video) {
 
-                    $app.find('#videos').append('<div class="small-12 medium-6 large-4 columns"><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
+                    $app.find('#videos').append('<li><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
                 });
             });
         }

@@ -77,45 +77,40 @@ $main-color: RGBA(237, 104, 181, 0.6);
 #home-div {
     text-align: center;
     @include search();
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    transform: translate(0px, 0px) scale(1, 1);
-    opacity: 1;
-    display: table;
- 
-    form {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-         input[type="search"] {
-            width: 100%;
-            color: rgb(255, 255, 255);
-            background: rgba(0, 0, 0, 0);
-            font-size: 3.2em;
-            font-weight: 300;
-            text-align: center;
-            border: 0px;
-            margin: 0px auto;
-            margin-top: -51px;
-            padding-left: 30px;
-            padding-right: 30px;
-            outline: none;
-        }   
-        ::-webkit-input-placeholder {
-                color: white;
-                opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    .wrapper {
+        form{
+             input[type="search"] {
+                width: 100%;
+                color: rgb(255, 255, 255);
+                background: rgba(0, 0, 0, 0);
+                font-size: 3.2em;
+                font-weight: 300;
+                text-align: center;
+                border: 0px;
+                margin: 0px auto;
+                outline: none;
+            }   
+            ::-webkit-input-placeholder {
+                    color: white;
+                    opacity: 0.5;
+            }
+            .submit {
+                @include buttons(white);
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
         }
-    }
-    .submit {
-        @include buttons(white);
-        &:hover {
-            opacity: 0.5;
+         #signature{
+            img {
+                max-width: 300px;
+                margin:50px;
+            }
         }
-    }
-    #signature{
     }
 }
 
@@ -203,15 +198,18 @@ button, .button{
 #videos {
     width:100%;
     padding:0px;
-    margin:0px;
+    margin: 0px;
+    margin-top:20px;
     max-width: none;
-    iframe{
-        float:right;
-        width:100%;
-        height:300px;
-        padding: none;
-        margin: none;
+    li{
+        padding:2px;
+        margin:0px;
+        iframe{
+            display: block;
+            width:100%;
+            height:300px;
+            border: 0;
+        }
     }
-
 }
 
