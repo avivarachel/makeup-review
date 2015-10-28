@@ -40,7 +40,8 @@ function productSearch() {
 
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
-    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
+    $homeDiv.append('<h1>the makeup master</h1>');
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
     search();
     $app.append("");
 
@@ -54,7 +55,7 @@ function productList(input, pageNum) {
             $app.html(''); // Clear the #app div
             $app.append($header);
             search();
-            $app.append('<h1>We do not have what you are looking for. Search again</h1>');
+            $app.append('<h1>We do not have what you are looking for. Search again</h1><img src="assets/not_the_billionaires.png">');
         }
         else {
             $app.html(''); // Clear the #app div
@@ -130,9 +131,9 @@ function productView(productId) {
 
             var $productProfile = $('<div id="productProfile" class="row">');
             $app.append($productProfile);
-            $app.find('#productProfile').append('<div class="large-5 columns"><image src=' + img + '>');
-            $app.find('#productProfile').append('<div class="large-7 columns"><h1>' + name);
-            $app.find('#productProfile').append('<div class="large-7 columns"><h2>' + brand);
+            $app.find('#productProfile').append('<div class="large-4 columns"><image src=' + img + '>');
+            $app.find('#productProfile').append('<div class="large-8 columns"><h1>' + name);
+            $app.find('#productProfile').append('<div class="large-8 columns"><h2>' + brand);
 
             var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
             $.getJSON(youtubeCall).then(function(response) {

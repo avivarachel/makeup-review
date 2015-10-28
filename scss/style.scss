@@ -1,9 +1,12 @@
 @import "foundation/components/buttons";
 @import "foundation/components/block-grid";
 @import "foundation/components/grid";
-
+@import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
 
 $main-color: RGBA(237, 104, 181, 0.6);
+$black-header: RGBA(0, 0, 0, 0.86);
+$black-subheader: RGBA(0, 0, 0, 0.56);
+
 @mixin search (){
     background-color: $main-color;
     color: white;
@@ -75,6 +78,10 @@ $main-color: RGBA(237, 104, 181, 0.6);
 
 //Home page search view
 #home-div {
+    h1{
+     font-family: 'Crafty Girls', cursive;
+     font-size:4em;
+    }
     text-align: center;
     @include search();
     display: flex;
@@ -95,8 +102,9 @@ $main-color: RGBA(237, 104, 181, 0.6);
                 outline: none;
             }   
             ::-webkit-input-placeholder {
-                    color: white;
-                    opacity: 0.5;
+                word-wrap: break-word;
+                color: white;
+                opacity: 0.5;
             }
             .submit {
                 @include buttons(white);
@@ -138,7 +146,7 @@ ul.large-block-grid-5 {
             }
             .name {
                 font-family: Helvetica, Arial, Sans-Serif;
-                color: black;
+                color: $black-header;
                 opacity:.82;
                 font-size: 20px;
                 text-decoration: none;
@@ -152,7 +160,7 @@ ul.large-block-grid-5 {
             .brand {
                 font-family: Helvetica, Arial, Sans-Serif;
                 font-weight: bold;
-                color: grey;
+                color: $black-subheader;
                 font-size: 15px;
             
             }
@@ -183,13 +191,24 @@ button, .button{
 //Product view with videos
 
 #productProfile {
-    margin-top: 70px;
+    margin-top: 133px;
+    margin-bottom: 6em;
+    img{
+        max-width:200px;
+        max-height:200px;
+    }
     h1 {
         text-align: left;
+        color:$black-header;
+        font-family: Helvetica, Arial, Sans-Serif;
+        font-weight:400;
+        
     }
     
     h2 {
         text-align: left;
+        color:$black-subheader;
+        font-family: Helvetica, Arial, Sans-Serif;
     }
 
 }
