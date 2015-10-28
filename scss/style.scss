@@ -142,6 +142,10 @@ ul.large-block-grid-5 {
     
             img {
                 width: 100%;
+                max-width:250px;
+                min-width:250px;
+                max-height:250px;
+                min-height:250px;
                 padding: 10px;
                 &:hover {
                     opacity: 0.5;
