@@ -20,7 +20,10 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
 //Header
 @mixin header-search() {
     @include search();
-    font-size: 25px;
+    font-size: 20px;
+    @media screen and (max-width: 1000px) {
+           font-size: 10;
+       }
     text-align: right;
     display: block;
     position: fixed; top: 0px; left: 0px;
@@ -49,7 +52,7 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
     margin-top: 20px;
     background-color: RGBA(0, 0, 0, 0);
     border: 2px solid $color;
-    border-radius: 8px;
+    border-radius: 5px;
     color: $color;
     display: center;
 }
@@ -62,22 +65,43 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
         float:left;
     }
     form {
-        margin-top:22px;
+        position: absolute; right:0px;
+        margin-top:15px;
         vertical-align: right;
-        margin-right: 20px;
-         input[type="search"] {
-            @include search-input();
-        }   
+        margin-right: 12px;
+        width: 25%;
+        height: 50%;
+        float: right;
+        input[type="search"] {
+            background-color: RGBA(0, 0, 0, 0);
+            color: white;
+            cursor: pointer;
+            letter-spacing: 4px;
+            word-spacing: 5px;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 4px;
+            margin-top: 0px;
+        } 
         ::-webkit-input-placeholder {
-                color: white;
-                opacity: 0.5;
-                padding-right: 30px;
-                letter-spacing: 7px;
+            color: white;
+            opacity: 0.5;
+            padding-right:260px;
+            padding-left:8px;
+        }
+        img{
+            position: absolute;
+            top: 10px;
+            right: 9px;
+            max-width: 24px;
+            margin: 0px;
+                    
         }
     }
     button{
-        visibility:hidden;
+        visibility: hidden;
     }
+
 }
 
 
@@ -127,7 +151,6 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 margin:50px;
             }
          }
-        
     }
 }
 
