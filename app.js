@@ -145,7 +145,7 @@ function productView(productId) {
             $app.find('#productProfile').append('<div class="large-8 columns"><h1>' + name);
             $app.find('#productProfile').append('<div class="large-8 columns"><h2>' + brand);
 
-            var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
+            var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&maxResults=12&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
             $.getJSON(youtubeCall).then(function(response) {
                 
                 $app.append('<ul id=videos class="large-block-grid-3">');
