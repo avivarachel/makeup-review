@@ -57,19 +57,23 @@ $main-color: RGBA(237, 104, 181, 0.6);
         margin-top:22px;
         vertical-align: right;
         margin-right: 60px;
+        border: 2px solid white;
+        width: 25%;
+        height: 50%;
+        float: right;
          input[type="search"] {
             @include search-input();
         }   
         ::-webkit-input-placeholder {
                 color: white;
                 opacity: 0.5;
-                padding-right: 60px;
-                text-decoration: underline;
+                padding-right: 40px;
         }
     }
     button{
         visibility: hidden;
     }
+
 }
 
 

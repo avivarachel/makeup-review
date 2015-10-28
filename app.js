@@ -2,6 +2,7 @@
 
 var $app = $('#app');
 
+
 var $header = $('<div id="header"><form><input type="search" class="search-input" id="header-search-bar" placeholder="search for your favourite makeup"><button class="submit"></button></div>');
 
 
