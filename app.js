@@ -42,6 +42,7 @@ function productSearch() {
     $app.append($homeDiv);
     $homeDiv.append("<form><input type='search' class='search-input' id='home-search-bar' placeholder='search for your favourite makeup'><button class='submit'>Search</button></form>");
     search();
+    $app.append('<div id="signature"><img src="assets/not_the_billionaires.png">');
 
 }
 

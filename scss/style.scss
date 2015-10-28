@@ -82,6 +82,7 @@ $main-color: RGBA(237, 104, 181, 0.6);
     transform: translate(0px, 0px) scale(1, 1);
     opacity: 1;
     display: table;
+ 
     form {
         display: table-cell;
         vertical-align: middle;
@@ -110,6 +111,9 @@ $main-color: RGBA(237, 104, 181, 0.6);
         &:hover {
             opacity: 0.5;
         }
+    }
+    #signature{
+       
     }
 }
 
