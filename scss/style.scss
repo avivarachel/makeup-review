@@ -99,15 +99,18 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 width: 100%;
                 color: rgb(255, 255, 255);
                 background: rgba(0, 0, 0, 0);
-                font-size: 3.2em;
+                font-size: 3em;
                 font-weight: 300;
                 text-align: center;
                 border: 0px;
                 margin: 0px auto;
                 outline: none;
+                
+                @media screen and (max-width: 500px) {
+                    font-size: 2em;
+                }
             }   
             ::-webkit-input-placeholder {
-                word-wrap: break-word;
                 color: white;
                 opacity: 0.5;
             }
@@ -123,6 +126,7 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 max-width: 300px;
                 margin:50px;
             }
+         }
         
     }
 }
@@ -240,4 +244,3 @@ button, .button{
         }
     }
 }
-
