@@ -46,7 +46,8 @@ function productSearch() {
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
     $homeDiv.append('<h1>the makeup master</h1>');
-    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
+    var placeholderText = "find the best makeup" + $('<i class="fa fa-search"></i>');
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='search for the best makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
     search();
     $app.append("");
 }
@@ -59,7 +60,7 @@ function error404(){
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
     $homeDiv.append('<h1>the makeup master</h1>');
-    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='avivaAndUlaize'><img src='assets/avivaAndUlaize.png'></div></div>");
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='error404'><img src='assets/error404.png'></div></div>");
     search();
 }
 
@@ -76,7 +77,7 @@ function productList(input, pageNum) {
             search();
             //ul needs to be appended to the div
 
-            var $ul = $('<ul class="large-block-grid-5">');
+            var $ul = $('<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">');
             $app.append($ul);
 
             response.search.forEach(function(product) {
@@ -144,18 +145,22 @@ function productView(productId) {
 
             var $productProfile = $('<div id="productProfile" class="row">');
             $app.append($productProfile);
-            $app.find('#productProfile').append('<div class="large-4 columns"><image src=' + img + '>');
-            $app.find('#productProfile').append('<div class="large-8 columns"><h1>' + name);
-            $app.find('#productProfile').append('<div class="large-8 columns"><h2>' + brand);
+            $app.find('#productProfile').append('<div class="small-4 columns"><image src=' + img + '>');
+            $app.find('#productProfile').append('<div class="small-8 columns"><h1>' + name);
+            $app.find('#productProfile').append('<div class="small-8 columns"><h2>' + brand);
 
             var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&maxResults=12&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
             $.getJSON(youtubeCall).then(function(response) {
-                
-                $app.append('<ul id=videos class="large-block-grid-3">');
-                response.items.forEach(function(video) {
-
-                    $app.find('#videos').append('<li><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
-                });
+                if(response.items.length===0){
+                    $app.append("<img id='novideos' src='assets/novideos.png'>");
+                }
+                else{
+                    $app.append('<ul id=videos class="large-block-grid-3">');
+                    response.items.forEach(function(video) {
+    
+                        $app.find('#videos').append('<li><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
+                    });
+                }
             });
         }
     );
