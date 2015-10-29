@@ -47,7 +47,7 @@ function productSearch() {
     $app.append($homeDiv);
     $homeDiv.append('<h1>the makeup master</h1>');
     $homeDiv.append('<h2>find the best makeup products</h2>');
-    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder=' '><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='&#xf002;'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
 
     search();
     $app.append("");

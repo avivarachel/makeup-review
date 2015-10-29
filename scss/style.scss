@@ -142,18 +142,24 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
             }   
             ::-webkit-input-placeholder {
                 word-wrap: break-word;
-                color: grey;
+                color: $main-color;
                 opacity: 1;
                 border:0px;
                 background: white;
                 border-radius:30px;
+                font-family: FontAwesome;
+                text-align: right;
+                font-size: 30px;
+                line-height: 55px;
+                padding-right: 10px;
+                
                 
                 @media screen and (max-width: 500px) {
                     font-size: 2em;
                 }
             }   
           
-            }
+            
             .submit {
                 margin-top:48px;
                 @include buttons(white);
