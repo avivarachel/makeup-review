@@ -157,7 +157,7 @@ function productView(productId) {
                     $app.append("<img id='novideos' src='assets/novideos.png'>");
                 }
                 else{
-                    $app.append('<ul id=videos class="large-block-grid-3">');
+                    $app.append('<ul id=videos class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">');
                     response.items.forEach(function(video) {
     
                         $app.find('#videos').append('<li><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
