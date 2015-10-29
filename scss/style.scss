@@ -48,7 +48,6 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
 
 @mixin buttons($color){
     text-transform: uppercase;
-    margin-top: 20px;
     background-color: RGBA(0, 0, 0, 0);
     border: 2px solid $color;
     border-radius: 5px;
@@ -108,8 +107,15 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
 //Home page search view
 #home-div {
     h1{
-     font-family: 'Crafty Girls', cursive;
-     font-size:4em;
+         font-family: 'Crafty Girls', cursive;
+         font-size:5em;
+         margin-bottom: 0px;
+    }
+    h2 {
+        font-family: Helvetica, Arial, Sans-Serif;
+        font-size: 30px;
+        font-weight: 100;
+        letter-spacing: 2px;
     }
     text-align: center;
     @include search();
@@ -118,24 +124,32 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
     justify-content: center;
     min-height: 100vh;
     .wrapper {
+        margin-top:3em;
         form{
              input[type="search"] {
-                width: 100%;
-                color: rgb(255, 255, 255);
+                width: 40%;
+                color: $main-color;
                 background: rgba(0, 0, 0, 0);
                 font-size: 3.2em;
                 font-weight: 300;
                 text-align: center;
-                border: 0px;
                 margin: 0px auto;
                 outline: none;
+                border:0px;
+                background: white;
+                border-radius:30px;
+                border-style: none;
             }   
             ::-webkit-input-placeholder {
                 word-wrap: break-word;
-                color: white;
-                opacity: 0.5;
+                color: grey;
+                opacity: 1;
+                border:0px;
+                background: white;
+                border-radius:30px;
             }
             .submit {
+                margin-top:48px;
                 @include buttons(white);
                 &:hover {
                     opacity: 0.5;
@@ -145,7 +159,7 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
          #signature, #avivaAndUlaize{
             img {
                 max-width: 300px;
-                margin:50px;
+                margin:30px;
             }
          }
     }

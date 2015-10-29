@@ -46,7 +46,8 @@ function productSearch() {
     $('#home-div > form > input[type="search"]').focus();
     $app.append($homeDiv);
     $homeDiv.append('<h1>the makeup master</h1>');
-    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder='find the best makeup'><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
+    $homeDiv.append('<h2>find the best makeup products</h2>');
+    $homeDiv.append("<div class='wrapper'><form><input type='search' class='search-input' id='home-search-bar' placeholder=' '><button class='submit'>Search</button></form><div id='signature'><img src='assets/not_the_billionaires.png'></div></div>");
     search();
     $app.append("");
 }
@@ -136,7 +137,6 @@ function productView(productId) {
             var brand = product.product.brand_name;
             var img = ('https://d3gm19tlfubzts.cloudfront.net/images_products/' + product.product.hash_url_image + '.jpg');
 
-
             $app.html('');
             $app.append($header);
             search();
@@ -147,6 +147,7 @@ function productView(productId) {
             $app.find('#productProfile').append('<div class="large-4 columns"><image src=' + img + '>');
             $app.find('#productProfile').append('<div class="large-8 columns"><h1>' + name);
             $app.find('#productProfile').append('<div class="large-8 columns"><h2>' + brand);
+            $app.find('#productProfile').append('<button class="large-8 columns"> Shop Now!</button>');
 
             var youtubeCall = ('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + name + brand + ' review&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE');
             $.getJSON(youtubeCall).then(function(response) {
