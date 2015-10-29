@@ -130,7 +130,7 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 width: 40%;
                 color: $main-color;
                 background: rgba(0, 0, 0, 0);
-                font-size: 3.2em;
+                font-size: 3em;
                 font-weight: 300;
                 text-align: center;
                 margin: 0px auto;
@@ -147,6 +147,12 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 border:0px;
                 background: white;
                 border-radius:30px;
+                
+                @media screen and (max-width: 500px) {
+                    font-size: 2em;
+                }
+            }   
+          
             }
             .submit {
                 margin-top:48px;
@@ -156,10 +162,9 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 }
             }
         }
-         #signature, #avivaAndUlaize{
+         #signature, #error404 {
             img {
-                max-width: 300px;
-                margin:30px;
+            max-width: 400px;
             }
          }
     }
@@ -239,7 +244,7 @@ button, .button{
 
 #productProfile {
     margin-top: 133px;
-    margin-bottom: 6em;
+    margin-bottom: 3em;
     img{
         max-width:200px;
         max-height:200px;
@@ -273,10 +278,16 @@ button, .button{
         iframe{
             display: block;
             width:100%;
-            height:300px;
+            min-height:300px;
+            height:auto;
             border: 0;
         }
     }
 }
 
-
+#novideos{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    max-width:400px;
+}
