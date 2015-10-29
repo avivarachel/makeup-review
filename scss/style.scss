@@ -22,7 +22,7 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
     @include search();
     font-size: 20px;
     @media screen and (max-width: 1000px) {
-           font-size: 10;
+           font-size: 17px;
        }
     text-align: right;
     display: block;
@@ -84,9 +84,13 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
         } 
         ::-webkit-input-placeholder {
             color: white;
-            opacity: 0.5;
             padding-right:260px;
             padding-left:8px;
+            font-family: FontAwesome;
+            text-align: right;
+            font-size: 20px;
+            line-height: 25px;
+            padding-right: 5px;
         }
         img{
             position: absolute;
@@ -108,14 +112,20 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
 #home-div {
     h1{
          font-family: 'Crafty Girls', cursive;
-         font-size:5em;
+         font-size: 80px;
          margin-bottom: 0px;
+         @media screen and (max-width: 800px) {
+            font-size: 50px;
+        }
     }
     h2 {
         font-family: Helvetica, Arial, Sans-Serif;
         font-size: 30px;
         font-weight: 100;
         letter-spacing: 2px;
+         @media screen and (max-width: 800px) {
+            font-size: 20px;
+        }
     }
     text-align: center;
     @include search();
@@ -154,8 +164,8 @@ $black-subheader: RGBA(0, 0, 0, 0.56);
                 padding-right: 10px;
                 
                 
-                @media screen and (max-width: 500px) {
-                    font-size: 2em;
+                @media screen and (max-width: 800px) {
+                    font-size: 20px;
                 }
             }   
           
@@ -188,7 +198,9 @@ ul.large-block-grid-5 {
         a {
             list-style: none;
             text-decoration: none;
-    
+            p{
+                margin:1px;
+            }
             img {
                 width: 100%;
                 max-width:250px;
@@ -222,6 +234,10 @@ ul.large-block-grid-5 {
                 font-size: 15px;
             
             }
+            i{
+                color:$main-color;
+                margin:2px;
+            }
         }
     }
     
@@ -251,6 +267,9 @@ button, .button{
 #productProfile {
     margin-top: 133px;
     margin-bottom: 3em;
+    div{
+        padding:0px;
+    }
     img{
         max-width:200px;
         max-height:200px;
@@ -260,13 +279,23 @@ button, .button{
         color:$black-header;
         font-family: Helvetica, Arial, Sans-Serif;
         font-weight:400;
+        margin:0px;
+        margin-bottom:20px;
         
     }
     
     h2 {
+        margin:0px;
+        margin-bottom:30px;
         text-align: left;
         color:$black-subheader;
         font-family: Helvetica, Arial, Sans-Serif;
+    }
+    a{
+        float:left;
+        @include buttons($main-color);
+        text-decoration:none;
+        padding:15px;
     }
 
 }
