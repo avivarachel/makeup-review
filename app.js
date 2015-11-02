@@ -36,6 +36,9 @@ var AppRouter = Backbone.Router.extend({
 });
 
 var appRouter = new AppRouter();
+appRouter.on('route', function() {
+    $('html,body').scrollTop(0);
+});
 Backbone.history.start();
 
 // Home page search view
@@ -78,7 +81,7 @@ function productList(input, pageNum) {
             search();
             //ul needs to be appended to the div
 
-            var $ul = $('<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">');
+            var $ul = $('<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">');
             $app.append($ul);
 
             response.search.forEach(function(product) {
@@ -211,7 +214,7 @@ function productView(productId) {
                     $app.append("<img id='novideos' src='assets/novideos.png'>");
                 }
                 else{
-                    $app.append('<ul id=videos class="small-block-grid-3 large-block-grid-3">');
+                    $app.append('<ul id=videos class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">');
                     response.items.forEach(function(video) {
     
                         $app.find('#videos').append('<li><iframe src="https://www.youtube.com/embed/' + video.id.videoId + '">');
